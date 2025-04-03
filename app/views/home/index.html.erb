@@ -1,0 +1,55 @@
+<div class="ai-assistant-container">
+  <% if user_signed_in? %>
+    <div class="user-welcome animate-fade-in">
+      <div class="welcome-message">
+        Welcome back, <span class="username"><%= current_user.email %></span>!
+      </div>
+      <div class="ai-greeting typing-animation">
+        How can I assist you today?
+      </div>
+    </div>
+    
+    <%# <div class="action-buttons"> %>
+      <%#= button_to "Start Chat", chat_path, method: :get, class: "btn-primary pulse-hover" %>
+      <%#= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn-signout" %>
+    <%# </div> %>
+
+    <div class="action-buttons">
+      <%#= button_to "Start Chat", chat_path, method: :get, class: "btn-primary pulse-hover" %>
+      <%= button_to "Start Chat", destroy_user_session_path, method: :delete, class: "btn-signout" %>
+    </div>
+    
+    <div class="recent-chats slide-up">
+      <h3>Your Recent Conversations</h3>
+      <!-- Add recent chats list here -->
+    </div>
+  <% else %>
+    <div class="hero-section">
+      <h1 class="logo animate-float">AI Assistant</h1>
+      <p class="tagline animate-fade-in" style="animation-delay: 0.3s">Your intelligent companion for all questions</p>
+      
+      <div class="cta-buttons">
+        <%= button_to "Sign In", new_user_session_path, method: :get, class: "btn-primary pulse-hover" %>
+        <%= button_to "Get Started", new_user_registration_path, method: :get, class: "btn-secondary" %>
+      </div>
+      
+      <div class="features">
+        <div class="feature slide-up" style="animation-delay: 0.2s">
+          <div class="feature-icon">💡</div>
+          <h3>Instant Answers</h3>
+          <p>Get accurate responses to your questions in real-time</p>
+        </div>
+        <div class="feature slide-up" style="animation-delay: 0.4s">
+          <div class="feature-icon">⏰</div>
+          <h3>24/7 Availability</h3>
+          <p>Always ready to help whenever you need it</p>
+        </div>
+        <div class="feature slide-up" style="animation-delay: 0.6s">
+          <div class="feature-icon">🔒</div>
+          <h3>Secure</h3>
+          <p>Your conversations are private and protected</p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
